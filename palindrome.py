@@ -12,7 +12,8 @@ def isPalindrome(x: int) -> bool:
         reversed_num = reversed_num * 10 + digit
         temp //= 10
     
-    return reversed_num ==x 
+    return reversed_num == x 
 
-isPalindrome(131)
+result = isPalindrome(13311)
+print(result)
 
