@@ -13,3 +13,14 @@ practice = [3, 2, 3, 3, 0, 43, 22, 4, 0]
 result = containsDuplicate(nums=practice)
 print(result) 
 
+# here is a more efficient way to do it using a set called seen
+# this is similar to our twoSum solution
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return True
+            seen.add(num)
+        return False
