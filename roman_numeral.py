@@ -17,5 +17,7 @@ def romanToInt(s: str) -> int:
             ans += m[s[i]]
     return ans 
 
-result = romanToInt(s = 'CI')
+result = romanToInt(s = 'IV')
 print(result)
+
+
