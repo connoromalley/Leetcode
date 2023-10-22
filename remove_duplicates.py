@@ -10,4 +10,5 @@ def removeDuplicates(nums: List[int]) -> int:
 
 nums = [4,5,5,5,6,7,8] # this algo is only for sorted lists 
 result = removeDuplicates(nums)
-print(nums[:result])
+print(nums[:result]) # this prints the new list 
+print(result) # this prints the length of the list... is that bc the function is set to -> int?
