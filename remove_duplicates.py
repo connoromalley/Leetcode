@@ -8,6 +8,6 @@ def removeDuplicates(nums: List[int]) -> int:
             j += 1                #   and move j one forward
     return j
 
-nums = [4,5,5,5,6,7] # this algo is only for sorted lists 
-result = removeDuplicates(nums = nums)
-print(result)
+nums = [4,5,5,5,6,7,8] # this algo is only for sorted lists 
+result = removeDuplicates(nums)
+print(nums[:result])
