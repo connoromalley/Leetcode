@@ -11,6 +11,6 @@ def removeElement(nums: List[int], val: int) -> int:
 
 
 nums = [4, 3, 5, 6, 9]
-val = 9 
+val = 4 
 length = removeElement(nums, val)
 print(nums[:length])
