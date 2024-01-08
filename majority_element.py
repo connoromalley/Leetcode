@@ -1,3 +1,6 @@
+# this algorithm finds the number that
+# occurs more than half the time 
+
 def majority_element(nums):
     nums.sort()
     n = len(nums)
