@@ -1,3 +1,5 @@
+# hash table is main algo used
+
 from typing import List
 
 def twoSum(nums: List[int], target: int) -> List[int]: 
