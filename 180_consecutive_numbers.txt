@@ -1,0 +1,8 @@
+# consecutive numbers
+# this query finds the number that occurs at least 3 times consecutively
+
+
+select distinct num as ConsecutiveNums from
+(select num, id - row_number() over (order by num, id) rank from logs) a # id is basically row numbers so this
+group by num, rank                                                       # subtracts the end of the consecutive nums from id
+having count(*) >2
