@@ -1,0 +1,7 @@
+# find the last person that can fit on the bus
+# theres an order to who can get on the bus and the weight limit is 1000 pounds
+
+select top 1
+from (select *, sum(weight) over (order by Turn) as total_sum from queue t)
+where total_sum <= 1000
+order by Turn desc
