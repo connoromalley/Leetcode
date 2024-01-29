@@ -1,0 +1,11 @@
+# this problem asks you to swap seats with every 2 positions except for the last one if its odd
+# it uses the isnull() function along with lead and lag to swap student ids
+# if the id is odd, it replaces it with the next one. if the id is even, it replaces it with the last one
+# thus effectively swapping the values
+
+SELECT id, ISNULL(
+					CASE WHEN id % 2 = 1 THEN LEAD(student,1) OVER(ORDER BY id) 
+				    ELSE LAG(student,1) OVER(ORDER BY id) END, 
+					student
+				  ) student
+FROM seat;
