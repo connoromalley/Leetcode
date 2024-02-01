@@ -1,0 +1,10 @@
+select top 1 x.id, count(x.id) as num
+from(
+    select requester_id as id
+    from requestaccepted
+    union all
+    select accepter_id
+    from requestaccepted
+) x
+group by x.id
+order by num desc
