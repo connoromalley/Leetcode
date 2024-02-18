@@ -1,0 +1,16 @@
+# t-sql solution
+# use datediff to join 
+select w1.id as id
+from weather w1, weather w2
+where w1.temperature > w2.temperature
+and datediff(day, w2.recordDate, w1.recordDate) = 1 
+
+# pandas
+import pandas as pd
+
+def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
+    weather.sort_values(by = 'recordDate', inplace=True)
+    return weather[
+        (weather.temperature.diff()>0)
+        & (weather.recordDate.diff().dt.days==1)
+    ][['id']]
