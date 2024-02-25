@@ -1,0 +1,28 @@
+# pandas
+import pandas as pd
+
+# Perform the join operation
+merged_df = pd.merge(activity_df, activity_df, on=['process_id', 'machine_id'], suffixes=('_a1', '_a2'))
+
+# Filter the rows where the timestamp in the second activity is greater than the timestamp in the first activity
+filtered_df = merged_df[merged_df['timestamp_a2'] > merged_df['timestamp_a1']]
+
+# Calculate the time difference between consecutive activities
+filtered_df['time_difference'] = filtered_df['timestamp_a2'] - filtered_df['timestamp_a1']
+
+# Group by machine_id and calculate the average processing time
+result_df = filtered_df.groupby('machine_id')['time_difference'].mean().reset_index()
+
+# Display the result
+print(result_df)
+
+
+
+# t-sql solution
+select a1.machine_id, round(avg(a2.timestamp - a1.timestamp),3) as processing_time
+from Activity a1
+join Activity a2
+on a1.process_id=a2.process_id
+and a1.machine_id = a2.machine_id
+and a1.timestamp<a2.timestamp
+group by a1.machine_id
